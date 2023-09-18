@@ -37,6 +37,134 @@
 </details>
 
 <details>
+<summary>Что выведет консоль:</summary>
+<div>
+  typeof undefined
+  
+  console.log(NaN == NaN)
+  
+  const a = null;
+  console.log(!a && typeof a === "object")
+
+</div>
+</details>
+
+<details>
+<summary>Что такое простые и комплексные типы данных? В чем главное отличие.</summary>
+<div>
+  <p>Простые двнные: null, string, boolean, number, symbol<p>
+  <p>Комплексные: массив, объект, функции</p>
+  Самое главное отличие, что простые значения не мутабельны, комплексыне напротив.
+
+  Примеры, чтобы напомнить (если нет ответа):
+  let a = 1
+  let b = a
+  b++
+  // console
+  a // 1
+  b // 2
+
+  let x = [1,2,3]
+  let y = x
+  y.push(4)
+  // console 
+  x // [1,2,3,4]
+  y // [1,2,3,4]
+
+  Более глубокие:
+  a = 'hello'
+  a[2] = 'W'
+  // console
+  a // 'hello'
+
+  b = ['h', 'e', 'l', 'l', 'o']
+  b[2] = 'W'
+  // console
+  b // ['h', 'e', 'W', 'l', 'o']
+
+  let fiz = [0,1]
+  let buz = fiz
+  buz[0] = 'a'
+  fiz // ['a', 1]
+
+  *
+  let fiz = [0,1]
+  let buz = fiz
+  buz = ['a', 'b']
+  fiz[0] // 0
+</div>
+</details>
+
+<details>
+<summary>* Почему у простого объекта строки, есть разлинче методы и функции, как это работает?</summary>
+<div>
+  a.toUpperCaase() // HELLO
+  a // hello
+
+  <p>Js, когда встречает подобную запись в коде, он создаёт обёртку вокруг этого примитива со всеми методами, которые можно испозьвать для     приобразования данных и т.д. После выполнения обёртка удаляетсяя оставяя только примитив.</p>
+</div>
+</details>
+
+<details>
+<summary>*Что выведет консоль:</summary>
+<div>
+  const x = function() {};
+  console.log(x.lenght)
+  
+  const y = function(a, b, c) {};
+  console.log(y.lenght)
+</div>
+</details>
+
+<details>
+<summary>Логические операторы.</summary>
+<div>
+  const a = 1
+  const b = 'a'
+  const c = null
+
+  a && b // 'a'
+  a || b // 1
+  b && c // null
+  c || a // 1
+  
+  const obj = { a: { b : 'c' } }
+  console.log(obj.a && obj.a.b) 
+</div>
+</details>
+
+<details>
+<summary>Преобразование данных. Какие бывают преобразования. К каким типам данных можно преобразовывать данные. Чем отличается оператор '==' от '==='?</summary>
+<div>
+  Преобразования могут быть явными и не явными. Преобразования возвращают 3 типа: строка, число, логическое значение.
+
+  == позволяет делать приведение типов, === этого не разрешает.
+
+  Примеры по преобразованию данных:
+  '123' == true -> '123' == 1 -> 123 === 1 // false
+  
+  false == '0' -> 0 == '0' -> 0 === 0 // true
+  false == ''
+  false == []
+
+  true + false          // 1
+  12 / '6'              // 2
+  'number' + 15 + 3     // number153
+  15 + 3 + 'number'     // 18number
+  [1] > null            // true
+  [1, 2] == NaN         // false
+  'foo' + + 'bar'       // fooNaN
+  false == 'false'      // false
+  null == ''            // false
+  !!'false' == !!'true' // true
+  ['x'] == 'x'          // true
+  [] + null + 1         // 'null1'
+  [1,2,3] == [1,2,3]    // false
+  
+</div>
+</details>
+
+<details>
 <summary>Что такое цикл событий (event loop) и как он работает?</summary>
 <div>
   <p>Движок браузера выполняет JavaScript в одном потоке. Для потока выделяется область памяти — стэк, где хранятся фреймы (аргументы, локальные переменные) вызываемых функций.</p>
